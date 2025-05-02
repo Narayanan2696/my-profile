@@ -1,14 +1,22 @@
+// src/components/Education.jsx
+import { Box, Typography } from '@mui/material';
+
 const Education = () => {
-    return (
-      <section id="education" className="p-6 bg-white rounded-2xl shadow">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Education</h2>
-        <div>
-          <h3 className="text-xl font-bold text-indigo-700">M.Sc. Software Systems</h3>
-          <p className="text-gray-600">PSG College of Technology, India — 07/2019</p>
-        </div>
-      </section>
-    );
-  };
-  
-  export default Education;
-  
+  return (
+    <Box sx={{ bgcolor: '#f5f5f5', p: 2, borderRadius: 2 }}>
+      <Typography variant="h4" gutterBottom color="primary" fontWeight={600}>
+        Education
+      </Typography>
+      <Box sx={{ bgcolor: '#e8e8e8', p: 2, borderRadius: 2 }}>
+        <Typography variant="h6" fontWeight={600} color="primary.dark">
+          M.Sc. Software Systems
+        </Typography>
+        <Typography variant="subtitle1" fontWeight={500}>
+          PSG College of Technology, India — 07/2019
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+export default Education;

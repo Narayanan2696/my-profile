@@ -1,21 +1,25 @@
+// src/components/Certifications.jsx
+import { Box, Typography, Stack } from '@mui/material';
+
+const certifications = [
+  "SAFe Agile for Teams",
+  "GetGoing - Introduction to Golang",
+  "Java Masterclass - Workshop"
+];
+
 const Certifications = () => {
-    const certs = [
-      "SAFe Agile for Teams",
-      "GetGoing - Introduction to Golang",
-      "Java Masterclass - Workshop"
-    ];
-  
-    return (
-      <section id="certifications" className="p-6 bg-white rounded-2xl shadow">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Certifications</h2>
-        <ul className="list-disc list-inside text-gray-600 space-y-2">
-          {certs.map((cert, idx) => (
-            <li key={idx}>{cert}</li>
-          ))}
-        </ul>
-      </section>
-    );
-  };
-  
-  export default Certifications;
-  
+  return (
+    <Box sx={{ bgcolor: '#f5f5f5', p: 2, borderRadius: 2 }}>
+      <Typography variant="h4" gutterBottom color="primary" fontWeight={600}>
+        Certifications
+      </Typography>
+      <Stack spacing={1} sx={{ bgcolor: '#e8e8e8', p: 2, borderRadius: 2 }}>
+        {certifications.map((cert, idx) => (
+          <Typography variant="body1" key={idx}>• {cert}</Typography>
+        ))}
+      </Stack>
+    </Box>
+  );
+};
+
+export default Certifications;
