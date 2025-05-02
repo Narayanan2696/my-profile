@@ -1,9 +1,11 @@
 // src/components/Experience.jsx
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, Chip, Link } from '@mui/material';
+import { CalendarMonth } from '@mui/icons-material';
 
 const experiences = [
   {
     company: "FedEx | India",
+    link: "https://www.fedex.com/en-in/home.html",
     title: "Full Stack Developer Senior II",
     period: "07/2024 - Present",
     description: [
@@ -14,6 +16,7 @@ const experiences = [
   },
   {
     company: "Yubi (formerly CredAvenue) | India",
+    link: "https://www.go-yubi.com/",
     title: "Senior Software Engineer",
     period: "01/2021 - 06/2024",
     description: [
@@ -25,6 +28,7 @@ const experiences = [
   },
   {
     company: "Foxsense Innovation | India",
+    link: "https://www.linkedin.com/company/foxsense-innovation/",
     title: "Product Hacker",
     period: "05/2020 - 12/2020",
     description: [
@@ -33,6 +37,7 @@ const experiences = [
   },
   {
     company: "WeInvest | India",
+    link: "https://www.weinvest.net/",
     title: "Software Engineer",
     period: "05/2019 - 01/2020",
     description: [
@@ -54,8 +59,16 @@ const Experience = () => {
               {exp.title}
             </Typography>
             <Typography variant="subtitle1" fontWeight={500}>
-              {exp.company} | {exp.period}
+              <Link href={exp.link} target="_blank" rel="noopener" underline="hover" color="inherit">
+                {exp.company}
+              </Link>
             </Typography>
+            <Chip
+              icon={<CalendarMonth sx={{ color: '#1e3a8a' }} />}
+              label={exp.period}
+              variant="outlined"
+              sx={{ mt: 1, mb: 1, borderColor: '#1e3a8a', color: '#1e3a8a' }}
+            />
             <ul style={{ marginTop: '0.5rem', paddingLeft: '1.5rem' }}>
               {exp.description.map((point, i) => (
                 <li key={i} style={{ marginBottom: '0.4rem' }}>
