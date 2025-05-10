@@ -1,5 +1,5 @@
 // src/components/Education.jsx
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 
 const Education = () => {
   return (
@@ -9,7 +9,9 @@ const Education = () => {
       </Typography>
       <Box sx={{ bgcolor: '#e8e8e8', p: 2, borderRadius: 2 }}>
         <Typography variant="h6" fontWeight={600} color="primary.dark">
-          M.Sc. Software Systems
+          <Link href="https://www.psgtech.edu/progr_det.php" target="_blank" rel="noopener" underline="hover" color="primary.dark">
+            M.Sc. Software Systems
+          </Link>
         </Typography>
         <Typography variant="subtitle1" fontWeight={500}>
           PSG College of Technology, India — 07/2019
