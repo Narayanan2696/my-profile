@@ -5,7 +5,7 @@ const About = () => {
   return (
     <Box sx={{ bgcolor: '#f5f5f5', p: 2, borderRadius: 2 }}>
       <Typography variant="h4" gutterBottom color="primary" fontWeight={600}>
-        About Me
+        About
       </Typography>
       <Box sx={{ bgcolor: '#e8e8e8', p: 2, borderRadius: 2 }}>
         <Typography variant="body1">

@@ -13,9 +13,6 @@ import {
   Slide,
 } from '@mui/material';
 import { CalendarMonth, ExpandMore } from '@mui/icons-material';
-import StorageIcon from '@mui/icons-material/Storage';
-import CloudIcon from '@mui/icons-material/Cloud';
-import CodeIcon from '@mui/icons-material/Code';
 import { useState } from 'react';
 
 const experiences = [
@@ -30,8 +27,8 @@ const experiences = [
       "Introduced gRPC in Java Spring Boot to improve communication between internal microservices."
     ],
     techStack: [
-      { label: 'Java Spring Boot', icon: <CodeIcon />, color: '#6db33f', link: 'https://spring.io/projects/spring-boot' },
-      { label: 'gRPC', icon: <CodeIcon />, color: '#0087c9', link: 'https://grpc.io/' }
+      { label: 'Java Spring Boot', icon: '/icons8-java.svg', link: 'https://spring.io/projects/spring-boot' },
+      { label: 'gRPC', icon: '/logos--grpc.svg', link: 'https://grpc.io/' }
     ]
   },
   {
@@ -48,13 +45,13 @@ const experiences = [
       "Led integration deliveries, performed product requirement analysis, and ensured timely implementation with hands-on mentoring and quality feedback."
     ],
     techStack: [
-      { label: 'CockroachDB', icon: <StorageIcon />, color: '#5a2b84', link: 'https://www.cockroachlabs.com/' },
-      { label: 'Temporal', icon: <CodeIcon />, color: '#14213d', link: 'https://temporal.io/' },
-      { label: 'Ruby on Rails', icon: <CodeIcon />, color: '#cc0000', link: 'https://rubyonrails.org/' },
-      { label: 'Java Spring Boot', icon: <CodeIcon />, color: '#6db33f', link: 'https://spring.io/projects/spring-boot' },
-      { label: 'Node.js', icon: <CodeIcon />, color: '#339933', link: 'https://nodejs.org/' },
-      { label: 'PostgreSQL', icon: <StorageIcon />, color: '#336791', link: 'https://www.postgresql.org/' },
-      { label: 'AWS', icon: <CloudIcon />, color: '#ff9900', link: 'https://aws.amazon.com/' }
+      // { label: 'CockroachDB', icon: <StorageIcon />, color: '#5a2b84', link: 'https://www.cockroachlabs.com/' },
+      // { label: 'Temporal', icon: <CodeIcon />, color: '#14213d', link: 'https://temporal.io/' },
+      { label: 'Ruby on Rails', icon: '/icons8-ruby-on-rails-24.png', link: 'https://rubyonrails.org/' },
+      { label: 'Java Spring Boot', icon: '/icons8-java.svg', link: 'https://spring.io/projects/spring-boot' },
+      { label: 'Node.js', icon: '/icons8-node-js.svg', link: 'https://nodejs.org/' },
+      { label: 'PostgreSQL', icon: '/icons8-postgresql.svg', link: 'https://www.postgresql.org/' },
+      { label: 'AWS', icon: '/icons8-aws.svg', link: 'https://aws.amazon.com/' }
     ]
   },
   {
@@ -71,12 +68,12 @@ const experiences = [
       "Implemented QR code generation and menu listing APIs."
     ],
     techStack: [
-      { label: 'Node.js', icon: <CodeIcon />, color: '#339933', link: 'https://nodejs.org/' },
-      { label: 'React.js', icon: <CodeIcon />, color: '#61dafb', link: 'https://reactjs.org/' },
-      { label: 'MongoDB', icon: <StorageIcon />, color: '#47A248', link: 'https://www.mongodb.com/' },
-      { label: 'Stripe', icon: <CodeIcon />, color: '#635bff', link: 'https://stripe.com/' },
-      { label: 'Python Flask', icon: <CodeIcon />, color: '#000000', link: 'https://flask.palletsprojects.com/' },
-      { label: 'PostgreSQL', icon: <StorageIcon />, color: '#336791', link: 'https://www.postgresql.org/' }
+      { label: 'Node.js', icon: '/icons8-node-js.svg', link: 'https://nodejs.org/' },
+      { label: 'React.js', icon: '/icons8-react-js.svg', link: 'https://reactjs.org/' },
+      { label: 'MongoDB', icon: '/icons8-mongodb-24.png', link: 'https://www.mongodb.com/' },
+      { label: 'Stripe', icon: '/icons8-stripe-24.png', link: 'https://stripe.com/' },
+      { label: 'Python Flask', icon: '/icons8-python.svg', link: 'https://flask.palletsprojects.com/' },
+      { label: 'PostgreSQL', icon: '/icons8-postgresql.svg', link: 'https://www.postgresql.org/' },
     ]
   },
   {
@@ -89,17 +86,17 @@ const experiences = [
       "Led the end-to-end integration with a Thai banking partner and relocated to Thailand for two months to ensure on-site delivery."
     ],
     techStack: [
-      { label: 'Ruby on Rails', icon: <CodeIcon />, color: '#cc0000', link: 'https://rubyonrails.org/' },
-      { label: 'PostgreSQL', icon: <StorageIcon />, color: '#336791', link: 'https://www.postgresql.org/' }
+      { label: 'Ruby on Rails', icon: '/icons8-ruby-on-rails-24.png', link: 'https://rubyonrails.org/' },
+      { label: 'PostgreSQL', icon: '/icons8-postgresql.svg', link: 'https://www.postgresql.org/' }
     ]
   }
 ];
 
 const Experience = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(0); // FedEx open by default
 
   const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+    setExpanded(isExpanded ? panel : 0); // Close others, reopen FedEx if collapsed
   };
 
   return (
@@ -166,12 +163,15 @@ const Experience = () => {
                             <Tooltip title={tech.label} arrow>
                               <Link href={tech.link} target="_blank" rel="noopener" underline="none">
                                 <Chip
-                                  icon={tech.icon}
+                                  avatar={<Box component="img" src={tech.icon} alt={tech.label} sx={{ width: 24, height: 24, objectFit: 'contain' }} />}
                                   label={tech.label}
                                   clickable
                                   sx={{
-                                    bgcolor: tech.color,
-                                    color: '#fff',
+                                    bgcolor: '#e8e8e8',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 1,
+                                    color: '#black',
                                     transition: 'transform 0.2s',
                                     '&:hover': { transform: 'scale(1.05)' }
                                   }}

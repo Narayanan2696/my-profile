@@ -1,38 +1,67 @@
-// src/components/Hero.jsx
-import { Box, Typography, Avatar, Stack } from '@mui/material';
+import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 
 const Hero = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.between('xs', 'lg'));
+
   return (
     <Box
       sx={{
-        bgcolor: '#1e3a8a',
-        color: 'white',
-        py: 6,
-        px: 3,
+        position: 'relative',
+        overflow: 'hidden',
+        height: { xs: '300px', md: '400px' },
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        borderRadius: 2,
-        flexDirection: { xs: 'column', md: 'row' },
-        gap: 4,
+        justifyContent: isSmallScreen ? 'center' : 'flex-end',
+        bgcolor: '#1e3a8a',
+        color: 'white',
+        px: 2,
       }}
     >
-      <Avatar
+      {/* Background profile image */}
+      <Box
+        component="img"
+        src="/IMG-3208.jpg" // Place your profile.jpg in public folder
         alt="Narayanan Venkataraman"
-        src="/profile.jpg" // Place a photo named profile.jpg in public folder
-        sx={{ width: 120, height: 120, border: '3px solid white' }}
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '80%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          offset: '400px',
+          opacity: 0.5,
+          transition: 'opacity 0.5s ease',
+          zIndex: 0,
+          '&:hover': {
+            opacity: 0.2,
+          },
+        }}
       />
-      <Stack alignItems="flex-start" spacing={1}>
-        <Typography variant="h4" fontWeight={700}>
+
+      {/* Text Content */}
+      <Box
+        sx={{
+          position: 'relative',
+          zIndex: 1,
+          textAlign: isSmallScreen ? 'right' : 'left',
+          maxWidth: { xs: '100%', md: '600px' },
+          mt: isSmallScreen ? 'auto' : 0,
+          mb: isSmallScreen ? 2 : 0,
+        }}
+      >
+        <Typography variant={isSmallScreen ? 'h5' : 'h3'} fontWeight={700}>
           Narayanan Venkataraman
         </Typography>
-        <Typography variant="h6" sx={{ opacity: 0.9 }}>
-          Senior Software Engineer | Full Stack Developer
+        <Typography variant={isSmallScreen ? 'subtitle1' : 'h5'} sx={{ opacity: 0.9 }}>
+          Full Stack Developer
         </Typography>
-        <Typography variant="body1" sx={{ maxWidth: 600 }}>
-          Passionate about building scalable backend services and product architecture. Experienced in Java, Node.js, Ruby on Rails, and modern database technologies.
+        <Typography variant="body2" sx={{ mt: 1 }}>
+          Passionate about building scalable and robust products.
         </Typography>
-      </Stack>
+      </Box>
     </Box>
   );
 };

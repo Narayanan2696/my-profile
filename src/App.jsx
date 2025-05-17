@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
+import FreelancingProjects from './components/FreelancingProjects';
 import { motion } from 'framer-motion';
 import { AppBar, Toolbar, Button, Container, Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -32,6 +33,7 @@ function App() {
                 <Button href="#about" sx={{ color: '#1e3a8a' }}>About</Button>
                 <Button href="#skills" sx={{ color: '#1e3a8a' }}>Skills</Button>
                 <Button href="#experience" sx={{ color: '#1e3a8a' }}>Experience</Button>
+                <Button href="#freelancing" sx={{ color: '#1e3a8a' }}>Freelancing</Button>
                 <Button href="#education" sx={{ color: '#1e3a8a' }}>Education</Button>
                 <Button href="#certifications" sx={{ color: '#1e3a8a' }}>Certifications</Button>
                 <Button href="#contact" sx={{ color: '#1e3a8a' }}>Contact</Button>
@@ -58,6 +60,9 @@ function App() {
           </motion.div>
           <motion.div id="experience" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}>
             <Experience />
+          </motion.div>
+          <motion.div id="freelancing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}>
+            <FreelancingProjects />
           </motion.div>
           <motion.div id="education" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.6 }}>
             <Education />
